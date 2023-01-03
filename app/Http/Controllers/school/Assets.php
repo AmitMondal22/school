@@ -60,4 +60,8 @@ class Assets extends Controller
         }
         echo $output;
     }
+
+    public function get_ip(Request $r){
+        return Assets::ip_to_get_data($r->ip);
+    }
 }
