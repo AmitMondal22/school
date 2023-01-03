@@ -79,7 +79,7 @@ Route::prefix('org')->group(function(){
         //======================End Student====================================
 
 
-        Route::get('getcountry',[Assets::class,'get_ip']);
+        Route::get('getcountryy',[Assets::class,'get_ip']);
 
         Route::get('/logout',function(){
             Auth::guard('orgSadmin')->logout();
