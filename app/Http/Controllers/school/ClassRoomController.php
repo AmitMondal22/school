@@ -76,7 +76,7 @@ class ClassRoomController extends Controller
         ->select('student.*','classroom.*','schoolinfo.schoolname','schoolinfo.schoolname','schoolinfo.schoolRegistrationId','student_school_class.student_school_class_id')
         ->orderBy('student_school_class.roll_no', 'ASC')
         ->get();
-        // return $cldata;
+
         $data = [
             'title' => "My Student",
             'schooldata'=>$cldata,
