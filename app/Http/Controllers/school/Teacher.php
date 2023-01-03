@@ -39,7 +39,7 @@ class Teacher extends Controller
             Toastr::success('Messages in here', 'Title', ["positionClass" => "toast-bottom-right"]);
             return redirect()->route('school.all_teacher');
         } else {
-            $ipdata= Assets::ip_to_get_data($r->ip);
+            $ipdata= (new Assets)->ip_to_get_data($r->ip);
             $data = [
                 'title' => "Add Teacher",
                 'country'=>Country::where('name', $ipdata->country)->orderBy('name', 'ASC')->get(),
