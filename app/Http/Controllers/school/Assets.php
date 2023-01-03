@@ -22,9 +22,11 @@ class Assets extends Controller
 
     public function ip_to_get_data($ip){
         // $response = Http::get('http://ip-api.com/php/103.77.136.81', [
-        //     'apiKey' => 'YOUR_API_KEY_HERE',
+        //     'apiKey' => '395a3e9c0419f45b2fc02da902e75322',
         //     'limit' => 10,
-        // ]);
+    //     // ]);
+    //     http://api.ipapi.com/api/161.185.160.93
+    // ? access_key = "395a3e9c0419f45b2fc02da902e75322"
         $response = Http::get('http://ip-api.com/json/'.$ip);
         return json_decode($response);
     }

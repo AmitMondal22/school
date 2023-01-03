@@ -159,6 +159,8 @@
     //     console.log(checked);
     // });
 
+    // ==================================Upgarde Class===========================
+
     $('#class_level_up').click(function(){
         var checked = []
         $("input[name='options[]']:checked").each(function ()
@@ -196,5 +198,7 @@
         });
 
     });
+
+    // ==================================End Upgarde Class===========================
 </script>
 @endsection

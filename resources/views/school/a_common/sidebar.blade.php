@@ -25,7 +25,7 @@
                                 <li><a href="{{route('school.schoolAdd')}}">New School</a></li>
                                 <li class="nav-label">Class</li>
                                 <li><a href="{{route('school.addclass')}}">New Class</a></li>
-                                <li><a href="{{route('school.all_class')}}">Class</a></li>
+
                                 <!-- <li class="nav-label">Teacher</li> -->
                                 <!-- <li><a href="{{route('school.addteacher')}}">New Teacher</a></li>
                                 <li><a href="{{route('school.all_teacher')}}">Teacher</a></li> -->
@@ -41,6 +41,10 @@
                                 <li><a href="{{route('school.addteacher')}}">New Teacher</a></li>
                                 <li><a href="{{route('school.all_teacher')}}">My Teacher</a></li>
                             </ul>
+                    </li>
+
+                    <li>
+                        <a href="{{route('school.all_class')}}" aria-expanded="false"><i class="icon-user-following menu-icon"></i><span class="nav-text">Class</span></a>
                     </li>
                     <li class="nav-label">Student</li>
                     <li class="mega-menu mega-menu-sm">

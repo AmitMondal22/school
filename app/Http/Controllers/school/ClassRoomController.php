@@ -65,7 +65,7 @@ class ClassRoomController extends Controller
         return view("school.school_class.allClass")->with($data);
     }
 
-    public function class_info($class_id){
+    public function class_info($class_id Request $r){
         $cldata=ClassRoom::where('classroom.created_by', Auth::guard('orgSadmin')->user()->school_user_id)
         ->where('classroom.classroom_id', $class_id)
         ->join('schoolinfo', 'schoolinfo.schoolid', '=', 'classroom.school_id')
