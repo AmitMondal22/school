@@ -81,8 +81,6 @@ Route::prefix('org')->group(function(){
 
         Route::get('getcountry',[Assets::class,'get_ip']);
 
-
-
         Route::get('/logout',function(){
             Auth::guard('orgSadmin')->logout();
             return redirect('/org/login');
