@@ -32,7 +32,7 @@ class SchoolInfo extends Controller
             Toastr::success('Messages in here', 'Title', ["positionClass" => "toast-bottom-right"]);
         }else{
 
-            $ipdata= Assets::ip_to_get_data($r->ip);
+            $ipdata= (new Assets)->ip_to_get_data($r->ip);
             $data=[
                 'title'=>"test",
                 'country'=>Country::where('name', $ipdata->country)->orderBy('name', 'ASC')->get(),
