@@ -7,6 +7,7 @@ use App\Http\Controllers\school\Dashboard;
 use App\Http\Controllers\school\SchoolInfo;
 use App\Http\Controllers\school\Student;
 use App\Http\Controllers\school\Teacher;
+use App\Http\Controllers\theame\Home;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/h', function () {
-    return view('welcome');
-});
+// Route::any('/', function () {
+//     return redirect('/home');
+// });
+// Route::get('/a', [Home::class,'index']);
+Route::get('/',[Home::class,'index'])->name('home');
 
 
 
