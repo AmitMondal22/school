@@ -26,7 +26,12 @@ use Illuminate\Support\Facades\Route;
 //     return redirect('/home');
 // });
 // Route::get('/a', [Home::class,'index']);
-Route::get('/',[Home::class,'index'])->name('home');
+Route::get('/',[Home::class,'index']);
+Route::get('/home',[Home::class,'index'])->name('home');
+
+Route::post('/contact-user',[Home::class,'contact_request'])->name('contactForm');
+Route::get('reload-captcha', [Home::class, 'reloadCaptcha'])->name('reloadcaptcha');
+
 
 
 
