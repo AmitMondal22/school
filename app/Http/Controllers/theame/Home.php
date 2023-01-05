@@ -7,6 +7,7 @@ use App\Models\ContactMessage;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Mews\Captcha\Facades\Captcha;
 
 class Home extends Controller
 {
@@ -41,6 +42,6 @@ class Home extends Controller
     }
 
     public function reloadCaptcha(){
-        return response()->json(['captcha'=> captcha_img()]);
+        return response()->json(['captcha'=> Captcha::img()]);
     }
 }
