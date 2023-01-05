@@ -29,7 +29,7 @@ class MyMail extends Mailable
      */
     public function build()
     {
-        $this->from('amit.synergi@gmail.com',$this->details['send_by']);
+        $this->from('info@wrongcode.in',$this->details['send_by']);
 
         return $this->subject($this->details['subject'])
         ->view('email.orgmail');
