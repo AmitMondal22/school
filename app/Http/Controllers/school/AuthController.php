@@ -15,15 +15,26 @@ use Illuminate\Support\Facades\Mail;
 class AuthController extends Controller
 {
     // ====================send email ===================================
-    public function send_mail_opt($email, $otp)
+    public function send_mail_opt($email, $otp,$url)
     {
-        $details = [
-            'title' => 'Dear Customer',
-            'body' => "Welcome, We thank you for your registration at MySchool Online school system  Your One Time Password is : " . $otp,
-            'subject' => 'Your email id Verification activation OTP code',
-            'send_by'=>'Amit Mondal'
-        ];
-        return Mail::to($email)->send(new MyMail($details));
+        if(!empty($url)){
+            $details = [
+                'title' => 'Dear Customer',
+                'body' => "Welcome, We thank you for your registration at MySchool Online school system  Your One Time Password is : " . $otp." OTP verification url :".$url,
+                'subject' => 'Your email id Verification activation OTP code',
+                'send_by'=>'Test'
+            ];
+            return Mail::to($email)->send(new MyMail($details));
+        }else{
+            $details = [
+                'title' => 'Dear Customer',
+                'body' => "Welcome, We thank you for your registration at MySchool Online school system  Your One Time Password is : " . $otp,
+                'subject' => 'Your email id Verification activation OTP code',
+                'send_by'=>'Test'
+            ];
+            return Mail::to($email)->send(new MyMail($details));
+        }
+
     }
 
     // =============================register account============================
@@ -34,7 +45,8 @@ class AuthController extends Controller
         }
         if ($request->isMethod('post')) {
             $otp = sprintf("%06d", mt_rand(000001, 999999));
-
+            $emailfind=SchoolUser::where('email',$request->email)->get()->count();
+            if($emailfind<=0){
                 $data = SchoolUser::create([
                     "name" => $request->name,
                     "email" => $request->email,
@@ -53,16 +65,18 @@ class AuthController extends Controller
 
 
                 if (!empty($data)) {
-                    $this->send_mail_opt($request->email, $otp);
-
-
                     $encemail=Crypt::encryptString($request->email);
+                    $this->send_mail_opt($request->email, $otp,route('emailvaladition', [$data->school_user_id,$encemail]));
                     Toastr::warning('checked your email');
-                    return redirect()->route('emailvaladition', [$data->id,$encemail]);
+                    return redirect()->route('emailvaladition', [$data->school_user_id,$encemail]);
 
                 } else {
                     Toastr::error('Success Message');
                 }
+            }else{
+                Toastr::warning('Email already exists');
+                return redirect()->route('orgregister');
+            }
         } else {
             return view('school.auth.register');
         }
@@ -76,7 +90,7 @@ class AuthController extends Controller
         $email =Crypt::decryptString($request->xyz);
         $otp = sprintf("%06d", mt_rand(000001, 999999));
         SchoolUser::where('school_user_id', $request->id)->where('email', $email)->update(['active_status' => '0','otp'=>$otp]);
-        $this->send_mail_opt($email, $otp);
+        $this->send_mail_opt($email, $otp,null);
         return Toastr::success('checked your email');
                                 // return ['success' => 'checked your email'];
     }
