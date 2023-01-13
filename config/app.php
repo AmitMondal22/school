@@ -178,6 +178,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
 
+        //paytm
+        Anand\LaravelPaytmWallet\PaytmWalletServiceProvider::class,
+
     ],
 
     /*
@@ -235,6 +238,8 @@ return [
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+
+        'PaytmWallet' => Anand\LaravelPaytmWallet\Facades\PaytmWallet::class,
     ],
 
 ];

@@ -27,6 +27,7 @@ return array(
     '538ca81a9a966a6716601ecf48f4eaef' => $vendorDir . '/opis/closure/functions.php',
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
     'e39a8b23c42d4e1452234d762b03835a' => $vendorDir . '/ramsey/uuid/src/functions.php',
+    '941748b3c8cae4466c827dfb5ca9602a' => $vendorDir . '/rmccue/requests/library/Deprecated.php',
     '2c102faa651ef8ea5874edb585946bce' => $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
     'caf23243e9cb3afd48d0414815ebf07e' => $vendorDir . '/brian2694/laravel-toastr/src/helper.php',
     'ed962a97bd972bc82007176b647d4e36' => $vendorDir . '/facade/ignition/src/helpers.php',
@@ -37,5 +38,6 @@ return array(
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '5e8fe2a5ffaded85af682684fe3bbf5a' => $vendorDir . '/mews/captcha/src/helpers.php',
     'ec07570ca5a812141189b1fa81503674' => $vendorDir . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+    '13906c19e3d8fcd1341b24ed4d51cf72' => $vendorDir . '/razorpay/razorpay/Deprecated.php',
     '0b47d6d4a00ca9112ba3953b49e7c9a4' => $vendorDir . '/yajra/laravel-datatables-oracle/src/helper.php',
 );

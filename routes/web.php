@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\school\Assets;
 use App\Http\Controllers\school\AuthController;
 use App\Http\Controllers\school\ClassRoomController;
@@ -63,6 +64,8 @@ Route::prefix('org')->group(function(){
         // =====================Add School =====================================
         Route::match(['get','post'],'/school-add', [SchoolInfo::class,'school_add'])->name('school.schoolAdd');
         Route::match(['get','post'],'/school', [SchoolInfo::class,'school'])->name('school.school');
+        Route::get('school-list/{id}',[Assets::class,'get_school'])->name('school_list');
+        Route::get('class-list/{school_id}',[Assets::class,'get_class_html'])->name('get_class_html');
         // =====================End Add School =====================================
 
         //======================add class====================================
@@ -84,6 +87,8 @@ Route::prefix('org')->group(function(){
         //======================== Student ====================================
         Route::match(['get','post'],'/student-admision', [Student::class,'student_admision'])->name('school.student_admision');
         Route::match(['get','post'],'/my-student', [Student::class,'my_student'])->name('school.my_student');
+
+        Route::match(['get','post'],'/all-student', [Student::class,'my_student_filter'])->name('school.my_student_filter');
         //======================End Student====================================
 
 
@@ -98,3 +103,16 @@ Route::prefix('org')->group(function(){
 
 });
 
+
+// =========================RazorpayPay Test============
+Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
+Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+
+
+Route::get('testrzpay',[RazorpayPaymentController::class,'testview']);
+Route::get('mPay',[RazorpayPaymentController::class,'mPaym'])->name('mp');
+// =========================RazorpayPay Test============
+
+Route::get('/initiate',[RazorpayPaymentController::class,'initiate'])->name('initiate.payment');
+Route::post('/payment',[RazorpayPaymentController::class,'pay'])->name('make.payment');
+Route::post('/payment/status', [RazorpayPaymentController::class,'paymentCallback'])->name('status');

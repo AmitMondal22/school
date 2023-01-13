@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '09b255ca6a8408a7be438a08aac5e23c78954b5e',
+        'reference' => 'e3b8fe925b78c251f49ee35760d7e6627ee33da1',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'anandsiddharth/laravel-paytm-wallet' => array(
+            'pretty_version' => 'v2.0.0',
+            'version' => '2.0.0.0',
+            'reference' => '5342add0719e9c5ca94fdd13f766e6a810f2ef45',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../anandsiddharth/laravel-paytm-wallet',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'asm89/stack-cors' => array(
             'pretty_version' => 'v2.1.1',
             'version' => '2.1.1.0',
@@ -415,7 +424,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '09b255ca6a8408a7be438a08aac5e23c78954b5e',
+            'reference' => 'e3b8fe925b78c251f49ee35760d7e6627ee33da1',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -812,11 +821,29 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'razorpay/razorpay' => array(
+            'pretty_version' => '2.8.5',
+            'version' => '2.8.5.0',
+            'reference' => '31027cfb689b9480d67419dbec7c203097e9d9ac',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../razorpay/razorpay',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'rhumsaa/uuid' => array(
             'dev_requirement' => false,
             'replaced' => array(
                 0 => '4.2.3',
             ),
+        ),
+        'rmccue/requests' => array(
+            'pretty_version' => 'v2.0.5',
+            'version' => '2.0.5.0',
+            'reference' => 'b717f1d2f4ef7992ec0c127747ed8b7e170c2f49',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../rmccue/requests',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'sebastian/cli-parser' => array(
             'pretty_version' => '1.0.1',
