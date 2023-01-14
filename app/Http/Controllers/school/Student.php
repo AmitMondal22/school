@@ -246,8 +246,6 @@ class Student extends Controller
             // ->where('student_school_class.class_active_status', 'A')
 
             $mystd=$mystd->select('student.*', 'classroom.class_name', 'schoolinfo.schoolname', 'schoolinfo.schoolname', 'schoolinfo.schoolRegistrationId', 'student_school_class.student_school_class_id', 'student_school_class.year', 'student_school_class.admission_date as adate', 'student_school_class.roll_no')
-            ->orderBy('schoolinfo.schoolname', 'ASC')
-            ->orderBy('classroom.class_name', 'ASC')
             ->orderBy('student_school_class.roll_no', 'ASC')
             ->get();
         // return  $mystd;
