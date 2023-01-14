@@ -54,7 +54,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('school.my_student')}}">My Student</a></li>
                             <li><a href="{{route('school.student_admision')}}">Admission Student</a></li>
-                            <li><a href="{{route('school.my_student_filter')}}">All Student</a></li>
+                            <li><a href="{{route('school.my_student_filter')}}">All Student </a></li>
                         </ul>
                     </li>
 
