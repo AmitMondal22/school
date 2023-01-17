@@ -87,7 +87,8 @@ Route::prefix('org')->group(function(){
 
         Route::get('/logout',function(){
             Auth::guard('orgSadmin')->logout();
-            return redirect('/org/login');
+            // return redirect('/org/login');
+            return redirect()->route('orglogin');
         })->name('orgadminlogout');
     });
 
@@ -100,11 +101,7 @@ Route::prefix('org')->group(function(){
 Route::prefix('wrongcode')->group(function(){
 
     Route::middleware('guest:wc_admin')->group(function(){
-
-    Route::match(['get','post'],'login',[User_WC::class,'login'])->name('wc_login');
-
-
-
+        Route::match(['get','post'],'login',[User_WC::class,'login'])->name('wc_login');
     });
 
     Route::middleware('auth:wc_admin')->group(function(){
