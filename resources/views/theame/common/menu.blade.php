@@ -21,7 +21,7 @@
                     <li class="nav-item">
                         <a href="#resume" class="nav-link"><span data-hover="Features">Features</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item"> 
                         <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
                     </li>
                 </ul>

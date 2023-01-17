@@ -111,7 +111,6 @@ Route::prefix('wrongcode')->group(function(){
         Route::get('dashboard',[Wc_assets::class,'public_contact'])->name('wc_Dashboard');
         Route::get('/',[Wc_assets::class,'public_contact'])->name('wc_Dashboard');
 
-
     });
 
 
