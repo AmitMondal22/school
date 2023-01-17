@@ -9,6 +9,7 @@ use App\Http\Controllers\school\SchoolInfo;
 use App\Http\Controllers\school\Student;
 use App\Http\Controllers\school\Teacher;
 use App\Http\Controllers\theame\Home;
+use App\Http\Controllers\wrongcode\MyUser;
 use App\Http\Controllers\wrongcode\User_WC;
 use App\Http\Controllers\wrongcode\Wc_assets;
 use Illuminate\Support\Facades\Auth;
@@ -110,6 +111,8 @@ Route::prefix('wrongcode')->group(function(){
         Route::get('contact',[Wc_assets::class,'public_contact'])->name('wc_contact');
         Route::get('dashboard',[Wc_assets::class,'public_contact'])->name('wc_Dashboard');
         Route::get('/',[Wc_assets::class,'public_contact'])->name('wc_Dashboard');
+
+        Route::get('/my-employee',[MyUser::class,'my_employ'])->name('myemployee');
 
     });
 

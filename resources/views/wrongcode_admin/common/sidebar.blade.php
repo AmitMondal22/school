@@ -18,19 +18,33 @@
                   </div>
                </div>
                <div class="sidebar_blog_2">
-                  <h4>General</h4>
+                  <h4>WrongCode</h4>
                   <ul class="list-unstyled components">
-                     <li class="active">
-                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
-                        <ul class="collapse list-unstyled" id="dashboard">
-                           <li>
-                              <a href="dashboard.html">> <span>Default Dashboard</span></a>
-                           </li>
-                           <li>
-                              <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
-                           </li>
+                  <li><a href="{{route('wc_Dashboard')}}"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+
+
+
+
+
+
+                     <li>
+                        <a href="#Employee" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Employee</span></a>
+                        <ul class="collapse list-unstyled" id="Employee">
+                           <li><a href="{{route('wc_register')}}">> <span>New Employee</span></a></li>
+                           <li><a href="{{route('myemployee')}}">> <span>All Employee</span></a></li>
                         </ul>
                      </li>
+
+
+
+
+
+
+
+
+
+
+<!--
                      <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Widgets</span></a></li>
                      <li>
                         <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
@@ -71,10 +85,10 @@
                               <a href="404_error.html">> <span>404 Error</span></a>
                            </li>
                         </ul>
-                     </li>
-                     <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
+                     </li>-->
+                     <!-- <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
                      <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
-                     <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                     <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li> -->
                   </ul>
                </div>
             </nav>
