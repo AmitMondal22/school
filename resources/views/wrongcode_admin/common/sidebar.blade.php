@@ -31,7 +31,7 @@
                         <a href="#Employee" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Employee</span></a>
                         <ul class="collapse list-unstyled" id="Employee">
                            <li><a href="{{route('wc_register')}}">> <span>New Employee</span></a></li>
-                           <li><a href="{{route('myemployee')}}">> <span>All Employee</span></a></li>
+                           <li><a href="{{route('myemployee')}}">> <span>Employee</span></a></li>
                         </ul>
                      </li>
 
