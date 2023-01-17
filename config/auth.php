@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'orgSadmin',
         ],
+        'wc_admin' => [
+            'driver' => 'session',
+            'provider' => 'wc_admin',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'orgSadmin' => [
             'driver' => 'eloquent',
             'model' => App\Models\SchoolUser::class,
+        ],
+        'wc_admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Wc_user::class,
         ],
 
         // 'users' => [
@@ -103,6 +111,12 @@ return [
         ],
         'orgSadmin' => [
             'provider' => 'orgSadmin',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'wc_admin' => [
+            'provider' => 'wc_admin',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

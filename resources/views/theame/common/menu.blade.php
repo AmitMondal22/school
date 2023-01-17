@@ -16,10 +16,10 @@
                         <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#project" class="nav-link"><span data-hover="Projects">Admin Panel</span></a>
+                        <a href="#project" class="nav-link"><span data-hover="Admin Panel">Admin Panel</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="Resume">Features</span></a>
+                        <a href="#resume" class="nav-link"><span data-hover="Features">Features</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>

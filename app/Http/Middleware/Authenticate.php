@@ -16,10 +16,24 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         // if (! $request->expectsJson()) {
-
-            if(!Auth::guard('orgSadmin')->check()){
+            // ======================orgSadmin=========================
+            if(!Auth::guard('orgSadmin')->check()&&$request->is('org/*')){
                 return route('orglogin');
             }
+            if(!Auth::guard('orgSadmin')->check()&&$request->is('org')){
+                return route('orglogin');
+            }
+            // ======================End orgSadmin=========================
+
+
+            // ======================wc_admin=========================
+            if(!Auth::guard('wc_admin')->check()&&$request->is('wrongcode/*')){
+                return route('wc_login');
+            }
+            if(!Auth::guard('wc_admin')->check()&&$request->is('wrongcode')){
+                return route('wc_login');
+            }
+            // =========================End wc_admin====================
             // if(!Auth::guard('student')->check()){
             //     return route('adminlogin');
             // }

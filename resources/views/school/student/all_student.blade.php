@@ -36,13 +36,13 @@
                                 <h5 class="mt-5 m-b-10">Date</h5>
 
 
-                                <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="01/01/2023 - 01/31/2023">
+                                <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="01/01/2022 - 01/01/2024" id="date_input">
                                 <h5 class="mt-3 m-b-10">Action</h5>
                                     <div class="list-group mail-list mb-3">
                                             <select name="" id="status" class="form-control ">
                                                 <option value="">All Student</option>
                                                 <option value="A">Active</option>
-                                                <option value="PO">Deactive</option>
+                                                <option value="PO">Pass Out Students</option>
                                             </select>
                                     </div>
 
@@ -187,7 +187,9 @@
                 data: function(d) {
                     d.status = $('#status').val(),
                     d.search = $('input[type="search"]').val(),
+                    d.date_input = $('#date_input').val(),
                     d.class_id= array_checkbox()
+
                 }
             },
             columns: [
@@ -247,6 +249,9 @@
 
 
         $('#status').change(function() {
+            table.draw();
+        });
+        $('#date_input').change(function() {
             table.draw();
         });
         $(document).on("change", ".class_all", function(){

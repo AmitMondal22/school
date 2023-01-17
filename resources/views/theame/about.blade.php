@@ -15,10 +15,12 @@
                                 </div>
                         </h1>
 
-                        <p>Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
+                        <p>The management of the school is now easier.</p>
 
                         <div class="custom-btn-group mt-4">
-                          <a href="{{asset('./public/homeTheame')}}/#" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
+                          <a href="{{asset('./public/homeTheame')}}/#" class="btn mr-lg-2 custom-btn">
+                            <!-- <i class='uil uil-file-alt'></i> -->
+                            Try A Free Demo</a>
                           <a href="{{asset('')}}org" class="btn custom-btn custom-btn-bg custom-btn-link">Admin Panel</a>
                         </div>
                     </div>

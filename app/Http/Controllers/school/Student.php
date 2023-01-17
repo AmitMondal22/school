@@ -243,6 +243,15 @@ class Student extends Controller
             if ($r->get('class_id') != '' || $r->get('class_id') != null) {
                 $mystd=$mystd->whereIn('student_school_class.class_id', $r->get('class_id'));
             }
+
+            if ($r->get('date_input') != '' || $r->get('date_input') != null) {
+                $array=explode(" - ",$r->get('date_input'));
+                $fdate = date('Y-m-d', strtotime($array[0]));
+                $tdate = date('Y-m-d', strtotime($array[1]));
+                // echo $tdate;
+                // exit();
+                $mystd=$mystd->orWhereBetween('student_school_class.admission_date', [$fdate,$tdate]);
+            }
             // ->where('student_school_class.class_active_status', 'A')
 
             $mystd=$mystd->select('student.*', 'classroom.class_name', 'schoolinfo.schoolname', 'schoolinfo.schoolname', 'schoolinfo.schoolRegistrationId', 'student_school_class.student_school_class_id', 'student_school_class.year', 'student_school_class.admission_date as adate', 'student_school_class.roll_no')
