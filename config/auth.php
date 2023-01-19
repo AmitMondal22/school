@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'wc_admin',
         ],
+        'wc_admin_me' => [
+            'driver' => 'session',
+            'provider' => 'wc_admin_me',
+        ],
     ],
 
     /*
@@ -77,6 +81,10 @@ return [
             'model' => App\Models\SchoolUser::class,
         ],
         'wc_admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Wc_user::class,
+        ],
+        'wc_admin_me' => [
             'driver' => 'eloquent',
             'model' => App\Models\Wc_user::class,
         ],
@@ -117,6 +125,12 @@ return [
         ],
         'wc_admin' => [
             'provider' => 'wc_admin',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'wc_admin_me' => [
+            'provider' => 'wc_admin_me',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

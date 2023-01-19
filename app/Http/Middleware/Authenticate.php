@@ -34,6 +34,15 @@ class Authenticate extends Middleware
                 return route('wc_login');
             }
             // =========================End wc_admin====================
+             // ======================wc ME admin=========================
+             if(!Auth::guard('wc_admin_me')->check()&&$request->is('wrongcode/*')){
+                return route('wc_login');
+            }
+            if(!Auth::guard('wc_admin_me')->check()&&$request->is('wrongcode')){
+                return route('wc_login');
+            }
+            // =========================End ME wc_admin====================
+
             // if(!Auth::guard('student')->check()){
             //     return route('adminlogin');
             // }

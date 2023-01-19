@@ -28,6 +28,9 @@ class RedirectIfAuthenticated
             if(Auth::guard('wc_admin')->check()){
                 return redirect()->route('wc_Dashboard');
             }
+            if(Auth::guard('wc_admin_me')->check()){
+                return redirect()->route('wc_Dashboard');
+            }
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
             }

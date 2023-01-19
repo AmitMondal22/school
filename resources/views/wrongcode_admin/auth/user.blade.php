@@ -63,7 +63,9 @@
                                                    <td>{{$value->gender}}</td>
                                                    <td>{{$value->adress}}</td>
                                                    <td>{{$value->user_role}}</td>
-                                                   <td></td>
+                                                   <td>{{ ($value->status == 'A') ? 'Active' : 'Deactive' }}</td>
+
+
                                                    <td>
                                                       <button type="button" class="btn btn-success btn-xs">Success</button>
                                                    </td>

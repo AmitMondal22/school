@@ -96,8 +96,9 @@ Route::prefix('org')->group(function(){
 
 });
 
+// ======================================================================================
 // ===============================WrongCode admin========================================
-
+// ======================================================================================
 
 Route::prefix('wrongcode')->group(function(){
 
@@ -113,6 +114,13 @@ Route::prefix('wrongcode')->group(function(){
         Route::get('/',[Wc_assets::class,'public_contact'])->name('wc_Dashboard');
 
         Route::get('/my-employee',[MyUser::class,'my_employ'])->name('myemployee');
+        Route::match(['get','post'],'/my-employee/{id}',[MyUser::class,'update_employ'])->name('myemployee_user');
+
+    });
+
+    Route::middleware('auth:wc_admin_me')->group(function(){
+
+
 
     });
 
@@ -125,9 +133,9 @@ Route::prefix('wrongcode')->group(function(){
 });
 
 
-
-// ===============================WrongCode admin========================================
-
+// ======================================================================================
+// ===============================End WrongCode admin========================================
+// ======================================================================================
 
 // =========================RazorpayPay Test============
 Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);

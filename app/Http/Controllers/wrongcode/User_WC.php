@@ -28,18 +28,42 @@ class User_WC extends Controller
                 return redirect()->route('wc_login');
             }
 
-            if(Auth::guard('wc_admin')->attempt(['email' => $request->email, 'password' => $request->password,'status' => 'A','user_role'=>'S'])){
-                // if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
-                    // return Auth::guard('orgSadmin')->user();
+            $role=Wc_user::select('user_role')->where('email', $request->email)->first()->user_role;
 
-                    // return auth()->guard('wc_admin')->user();
+
+            if($role=='S'){
+
+            }elseif($role=='M'){
+                if(Auth::guard('wc_admin_me')->attempt(['email' => $request->email, 'password' => $request->password,'status' => 'A','user_role'=>'M'])){
+                    // if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+                        // return Auth::guard('orgSadmin')->user();
+                        // return auth()->guard('wc_admin')->user();
                     Toastr::success('Successfully Log in :)','Success');
                     return redirect()->route('wc_Dashboard');
                 }else{
                     Toastr::error('Wrong Username And Password :)','error');
-                    // Toastr::error
+                        // Toastr::error
                     return redirect()->route('wc_login');
                 }
+            }elseif($role=='AC'){
+
+            }elseif($role=='AD'){
+
+            }elseif($role=='SA'){
+                if(Auth::guard('wc_admin')->attempt(['email' => $request->email, 'password' => $request->password,'status' => 'A','user_role'=>'SA'])){
+                    // if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+                        // return Auth::guard('orgSadmin')->user();
+                        // return auth()->guard('wc_admin')->user();
+                    Toastr::success('Successfully Log in :)','Success');
+                    return redirect()->route('wc_Dashboard');
+                }else{
+                    Toastr::error('Wrong Username And Password :)','error');
+                        // Toastr::error
+                    return redirect()->route('wc_login');
+                }
+            }
+
+
 
 
 
@@ -91,7 +115,7 @@ class User_WC extends Controller
                 'dp_path'=>$path,
                 'user_role'=>$request->userrole,
                 'status'=>'A',
-                'created_by'=>1,
+                'created_by'=>auth()->guard('wc_admin')->user()->wc_user_id,
             ]);
             Toastr::success('Messages in here', 'Title', ["positionClass" => "toast-bottom-right"]);
             return redirect()->route('wc_register');
