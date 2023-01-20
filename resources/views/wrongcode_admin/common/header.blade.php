@@ -1,4 +1,11 @@
 <!-- topbar -->
+@php
+    $st= explode('_',auth()->guard()->getName());
+    $st = array_slice($st, 1);
+    $st = array_slice($st, 0, -1);
+    $gurd_name=implode('_',$st);
+@endphp
+
 <div class="topbar">
                   <nav class="navbar navbar-expand-lg navbar-light">
                      <div class="full">
@@ -15,11 +22,11 @@
                               </ul> -->
                               <ul class="user_profile_dd">
                                  <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{asset('./public/wc_dp')}}/{{auth()->guard('wc_admin')->user()->dp}}" alt="#" /><span class="name_user">{{auth()->guard('wc_admin')->user()->name}}</span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{asset('./public/wc_dp')}}/{{auth()->guard($gurd_name)->user()->dp}}" alt="#" /><span class="name_user">{{auth()->guard($gurd_name)->user()->name}}</span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">My Profile</a>
-                                       <a class="dropdown-item" href="settings.html">Settings</a>
-                                       <a class="dropdown-item" href="help.html">Help</a>
+                                       <a class="dropdown-item" href="">My Profile</a>
+                                       <!-- <a class="dropdown-item" href="settings.html">Settings</a>
+                                       <a class="dropdown-item" href="help.html">Help</a> -->
                                        <a class="dropdown-item" href="{{route('wclogout')}}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>

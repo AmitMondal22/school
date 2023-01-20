@@ -1,4 +1,13 @@
 <!-- Sidebar  -->
+
+@php
+    $st= explode('_',auth()->guard()->getName());
+    $st = array_slice($st, 1);
+    $st = array_slice($st, 0, -1);
+    $gurd_name=implode('_',$st);
+    //auth()->guard($gurd_name)->user()->user_role
+@endphp
+
 <nav id="sidebar">
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
@@ -9,9 +18,9 @@
                   <div class="sidebar_user_info">
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
-                        <div class="user_img"><img class="img-responsive" src="{{asset('./public/wc_dp')}}/{{auth()->guard('wc_admin')->user()->dp}}" alt="#" /></div>
+                        <div class="user_img"><img class="img-responsive" src="{{asset('./public/wc_dp')}}/{{auth()->guard($gurd_name)->user()->dp}}" alt="#" /></div>
                         <div class="user_info">
-                           <h6>{{auth()->guard('wc_admin')->user()->name}}</h6>
+                           <h6>{{auth()->guard($gurd_name)->user()->name}}</h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -20,6 +29,10 @@
                <div class="sidebar_blog_2">
                   <h4>WrongCode</h4>
                   <ul class="list-unstyled components">
+
+                  @php
+                      if(auth()->guard($gurd_name)->user()->user_role=='SA'){
+                  @endphp
                   <li><a href="{{route('wc_Dashboard')}}"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
 
 
@@ -38,9 +51,22 @@
 
 
 
+@php
+                      }else if(auth()->guard($gurd_name)->user()->user_role=='M'){
+@endphp
+
+<li><a href="{{route('wc.DashboardM')}}"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
 
 
 
+
+
+
+
+
+@php
+                      }
+@endphp
 
 
 

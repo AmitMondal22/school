@@ -28,7 +28,7 @@ class User_WC extends Controller
                 return redirect()->route('wc_login');
             }
 
-            $role=Wc_user::select('user_role')->where('email', $request->email)->first()->user_role;
+            $role=Wc_user::select('user_role')->where('email', $useemail=$request->email)->first()->user_role;
 
 
             if($role=='S'){
@@ -57,7 +57,7 @@ class User_WC extends Controller
                     Toastr::success('Successfully Log in :)','Success');
                     return redirect()->route('wc_Dashboard');
                 }else{
-                    Toastr::error('Wrong Username And Password :)','error');
+                    Toastr::error('Wrong Password :)','error');
                         // Toastr::error
                     return redirect()->route('wc_login');
                 }
@@ -100,9 +100,9 @@ class User_WC extends Controller
         $path=$request->image->move(public_path('wc_dp'), $imageName);
 
 
-            $name = ucfirst(preg_replace('/\s+/', '', $request->name));
-            $datestr = preg_replace('/\s+/', '',  date('dmY', strtotime($request->dateofbirth)));
-            $password = $name . '@' . $datestr;
+        $name =  ucfirst(strtolower(ucfirst(preg_replace('/\s+/', '', $request->name))));
+        $datestr = preg_replace('/\s+/', '',  date('dmY', strtotime($request->dateofbirth)));
+        $password = $name . '@' . $datestr;
             $data=Wc_user::create([
                 'name'=>$request->name,
                 'email'=>$request->email,

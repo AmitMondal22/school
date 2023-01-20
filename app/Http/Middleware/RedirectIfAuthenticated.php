@@ -29,7 +29,7 @@ class RedirectIfAuthenticated
                 return redirect()->route('wc_Dashboard');
             }
             if(Auth::guard('wc_admin_me')->check()){
-                return redirect()->route('wc_Dashboard');
+                return redirect()->route('wc.DashboardM');
             }
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);

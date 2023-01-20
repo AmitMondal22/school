@@ -58,9 +58,10 @@ class MyUser extends Controller
 
 
 
-            $name = ucfirst(preg_replace('/\s+/', '', $request->name));
+            $name =  ucfirst(strtolower(ucfirst(preg_replace('/\s+/', '', $request->name))));
             $datestr = preg_replace('/\s+/', '',  date('dmY', strtotime($request->dateofbirth)));
             $password = $name . '@' . $datestr;
+
 
             $data=Wc_user::where('wc_user_id', $id)->update([
                 'name'=>$request->name,
@@ -77,10 +78,9 @@ class MyUser extends Controller
 
             ]);
         }else{
-            $name = ucfirst(preg_replace('/\s+/', '', $request->name));
+            $name =  ucfirst(strtolower(ucfirst(preg_replace('/\s+/', '', $request->name))));
             $datestr = preg_replace('/\s+/', '',  date('dmY', strtotime($request->dateofbirth)));
             $password = $name . '@' . $datestr;
-
             $data=Wc_user::where('wc_user_id', $id)->update([
                 'name'=>$request->name,
                 'email'=>$request->email,
