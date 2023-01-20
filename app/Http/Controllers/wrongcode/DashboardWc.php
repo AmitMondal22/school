@@ -11,8 +11,6 @@ class DashboardWc extends Controller
 
     }
     public function dashboard_m(){
-
-
         return view('wrongcode_admin.dashboard.dashboard_M');
     }
 }

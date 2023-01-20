@@ -43,8 +43,8 @@ Route::prefix('org')->group(function(){
 
 
     Route::middleware('auth:orgSadmin')->group(function(){
-        Route::get('/dashboard',[Dashboard::class,'index'])->name('school.dashboard');
         Route::get('/',[Dashboard::class,'index'])->name('school.dashboard');
+        Route::get('/dashboard',[Dashboard::class,'index'])->name('school.dashboard');
 
         Route::get('school-name', [Assets::class,'schoolName'])->name('achoolName');
         Route::match(['get','post'], '/mail',[AuthController::class,'sendmaiTest']);
@@ -106,38 +106,54 @@ Route::prefix('wrongcode')->group(function(){
     Route::middleware('guest:wc_admin')->group(function(){
         Route::match(['get','post'],'login',[User_WC::class,'login'])->name('wc_login');
     });
-
+    // =========================================================================================
+                                    // Super Admin
+    // =========================================================================================
     Route::middleware('auth:wc_admin')->group(function(){
         Route::get('/',[Wc_assets::class,'public_contact'])->name('wc_Dashboard');
-        Route::match(['get','post'],'register',[User_WC::class,'register'])->name('wc_register');
-        Route::get('contact',[Wc_assets::class,'public_contact'])->name('wc_contact');
         Route::get('dashboard',[Wc_assets::class,'public_contact'])->name('wc_Dashboard');
+
+        Route::match(['get','post'],'my-profile',[MyUser::class,'my_profile'])->name('wc.sa_profile');
+        Route::match(['get','post'],'register',[User_WC::class,'register'])->name('wc_register');
+        Route::post('/change-py-password/',[MyUser::class,'change_my_profile_password'])->name('myemployee_changepassword');
+        Route::get('contact',[Wc_assets::class,'public_contact'])->name('wc_contact');
 
 
         Route::get('/my-employee',[MyUser::class,'my_employ'])->name('myemployee');
         Route::match(['get','post'],'/my-employee/{id}',[MyUser::class,'update_employ'])->name('myemployee_user');
 
 
-        Route::get('/logout',function(){
-            Auth::guard('wc_admin')->logout();
-            return redirect()->route('wc_login');
-        })->name('wclogout');
-    });
 
+
+    });
+    Route::get('/logout',function(){
+        Auth::guard('wc_admin')->logout();
+        return redirect()->route('wc_login');
+    })->name('wc_admin_logout');
+    // =========================================================================================
+                                // Marketing
+    // =========================================================================================
     Route::middleware('auth:wc_admin_me')->group(function(){
+
 
         Route::get('/',[DashboardWc::class,'dashboard_m'])->name('wc.DashboardM');
         Route::get('m-dashboard',[DashboardWc::class,'dashboard_m'])->name('wc.DashboardM');
 
+        Route::match(['get','post'],'my-profile',[MyUser::class,'my_profile'])->name('wc.sa_profile');
+        Route::post('/change-py-password/',[MyUser::class,'change_my_profile_password'])->name('myemployee_changepassword');
 
-        Route::get('/logout',function(){
-            Auth::guard('wc_admin_me')->logout();
-            return redirect()->route('wc_login');
-        })->name('wclogout');
+
+
     });
+    // =========================================================================================
+    // =========================================================================================
 
 
 
+    Route::get('/m-logout',function(){
+        Auth::guard('wc_admin_me')->logout();
+        return redirect()->route('wc_login');
+    })->name('wc_admin_me_logout');
 
 });
 
