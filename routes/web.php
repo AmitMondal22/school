@@ -139,7 +139,7 @@ Route::prefix('wrongcode')->group(function(){
         Route::get('/',[DashboardWc::class,'dashboard_m'])->name('wc.DashboardM');
         Route::get('m-dashboard',[DashboardWc::class,'dashboard_m'])->name('wc.DashboardM');
 
-        Route::match(['get','post'],'my-profile',[MyUser::class,'my_profile'])->name('wc.sa_profile');
+        // Route::match(['get','post'],'my-profile',[MyUser::class,'my_profile'])->name('wc.sa_profile');
         Route::post('/change-py-password/',[MyUser::class,'change_my_profile_password'])->name('myemployee_changepassword');
 
 
@@ -156,6 +156,8 @@ Route::prefix('wrongcode')->group(function(){
     })->name('wc_admin_me_logout');
 
 });
+
+
 
 
 // ======================================================================================
